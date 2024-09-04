@@ -1,0 +1,39 @@
+.shesh{
+    text-decoration: none; border: 3px solid blue; padding: 6px; border-radius: 9px;
+}
+
+.shesh1{
+    text-decoration: none; border: 3px solid pink; padding: 6px; border-radius: 9px;
+}
+
+.shesh3{
+    text-decoration: none; border: 3px solid green; padding: 6px; border-radius: 9px;
+}
+
+.shesh:hover{
+    background-color: pink;
+    color:blue;
+}
+
+.shesh1:hover{
+    background-color: blue;
+    color:red;
+}
+
+.shesh3:hover{
+    background-color: red;
+    color:whitesmoke;
+}
+
+.head{
+    display: inline; margin-right: 900px;text-decoration: none; border: 3px solid black;padding: 5px; border-radius: 8px;
+}
+
+@font-face {
+    font-family: Matemasie-Regular;
+    src: url('Matemasie-Regular.ttf');
+}
+
+body{
+    font-family: Matemasie-Regular;
+}
