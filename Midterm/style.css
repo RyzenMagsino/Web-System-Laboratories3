@@ -1,15 +1,22 @@
+
+
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+.carousel {
+  max-width: 100%; /* Make sure carousel does not exceed container width */
+}
+
 .carousel-inner img {
     width: 100%; 
-    height: 100%;
+    height: 1000%;
     object-fit: cover; 
-    border-radius: 70px;
-    border: 1px solid rgb(23, 23, 23); 
+
 }
 
 #carouselExampleDark {
-    width: 50%;
-    height: 50%;
-    margin: auto;
+    max-width: 50%;
+    margin: 0 auto;
 }
 
 #mine {
@@ -19,57 +26,22 @@
 }
 
 
-.she-1{
-    background-image: url('car.avif');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    border: 2px;
-    border-radius: 75px;
-}
-
-.she-2{
-    background-image: url('plane.webp');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    border: 2px;
-    border-radius: 75px;
-}
-
-.she-3{
-    background-image: url('aldo1.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    border: 2px;
-    border-radius: 75px;
-}
-
-#cards{
-    padding-left: 50px;
-}
 
 #about{
     padding-left: 500px;
     padding-top: 20px;
 }
 
-/* .sheshs{
-    <div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0 d-flex justify-content-center">
+.fixed-card {
+  width: 350px; /* Adjusted fixed width */
+  height: 450px; /* Adjusted fixed height */
+  overflow: hidden; /* Ensures that overflow content is hidden */
+  margin: 10px; /* Optional: Adds spacing around each card */
+}
 
-      <div class="col-md-8">
-        <div class="card-body">
-          <h3 cla¿ss="card-title">About Me</h3>
-          <h4 class="card-body">I am Karl Ryzen E. Magsino</h4>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <img src="malupiton.jpg" class="img-fluid rounded-start" alt="...">
-      </div>
-    </div>
-  </div>
-} */
+.card-img-top {
+  height: 220px; /* Adjusted fixed height for the image */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  width: 100%; /* Ensures the image takes the full width of the card */
+}
+
