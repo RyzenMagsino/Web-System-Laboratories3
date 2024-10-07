@@ -50,3 +50,184 @@ body {
   width: 100%; /* Ensures the image takes the full width of the card */
 }
 
+@media (max-width: 768px) {
+  .row.align-items-center {
+      margin-top: 80px; /* Adjust based on your navbar height */
+      padding-top: 50px; /* Add padding so the content is not hidden */
+  }
+
+  h2 {
+      font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+
+  .btn-danger {
+      font-size: 1rem; /* Adjust button size for smaller screens */
+  }
+}
+
+
+
+
+
+
+
+
+/* testimonials*/
+.testimonial {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  border: 1px solid #1E3E62;
+  perspective: 1000px;
+  margin: 15px auto;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: 
+  transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #1E3E62;
+  color: rgb(255, 255, 255);
+}
+
+.flip-card-back {
+  background-color: #021526;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.whitebox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1E3E62;
+  text-align: center;
+  padding: 10px;
+}
+
+.checked {
+  color: rgb(255, 187, 0);
+}
+
+.card-img-round {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  margin: 0 auto;
+  align-items: center;
+}
+
+/* Responsive styles for testimonials */
+#testimonials {
+  padding: 50px 0;
+}
+
+#testimonials h1 {
+  font-weight: bold;
+}
+
+.flip-card {
+  width: 100%;
+  height: 400px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.5s;
+  perspective: 1000px;
+}
+
+.flip-card:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 1200px) {
+  #testimonials {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  #testimonials {
+    padding: 20px 15px;
+  }
+
+z
+  .flip-card {
+    height: 350px;
+  }
+
+  .flip-card .flip-card-front img {
+    height: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  #testimonials {
+    padding: 15px 10px;
+  }
+
+
+  .flip-card {
+    height: 300px;
+  }
+}
+/* testimonials*/
+
+/* make card enlarge on hover*/
+.card {
+  transition: transform 0.3s ease; /* Adjust the duration and easing as needed */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Increase the scale factor for enlargement */
+}
+/* make card enlarge on hover*/
+
+
+
+
+
+
+
+
+
+#featured, #gallery {
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+#featured {
+  padding-bottom: 0; /* Remove padding bottom if needed */
+}
+
+#gallery {
+  padding-top: 0; /* Remove padding top if needed */
+}
