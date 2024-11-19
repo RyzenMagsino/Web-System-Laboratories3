@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+    <title>Java</title>
+</head>
+<body>
+
+<h1 style="text-align: center; margin-bottom: 20px;">My Playlist</h1>
+
+<div id="wrapper">
+    <!-- Search Box -->
+    <div id="search-songs">
+        <input type="text" id="search-input" placeholder="Search songs...">
+    </div>
+
+    <!-- Add Song Section -->
+    <h2>Add a Song</h2>
+    <form id="add-song-form">
+        <input type="text" id="song-name" placeholder="Enter song title..." required>
+        <input type="text" id="song-artist" placeholder="Enter artist name..." required>
+        <button type="submit">Add Song</button>
+    </form>
+
+    <!-- Song List -->
+    <h2>Playlist</h2>
+    <!-- Labels for the Playlist -->
+    <div id="labels" style="text-align: left; margin-top: 10px;">
+        <span style="margin-left: 20px;">Song</span>
+        <span style="margin-left: 200px;">Artist</span>
+    </div>
+    <ul id="song-items">
+        <!-- Removed sample song -->
+    </ul>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
