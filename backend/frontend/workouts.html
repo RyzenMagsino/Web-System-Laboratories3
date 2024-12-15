@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        .workout-form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .workout-form h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #34495e;
+        }
+        .workout-form input {
+            width: 100%;
+            padding: 10px;
+            padding-right: 1px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+            font-size: 14px;
+        }
+        .workout-form input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        .workout-form button {
+            width: 100%;
+            padding: 10px;
+            background: #27ae60;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .workout-form button:hover {
+            background: #2ecc71;
+        }
+        .workout-list {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .workout-item {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .workout-item strong {
+            font-size: 18px;
+            color: #2c3e50;
+        }
+        .workout-item p {
+            margin: 5px 0 0;
+            color: #555;
+        }
+        .workout-item button {
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+        .workout-item button:hover {
+            background: #c0392b;
+        }
+        .edit-button {
+            background: #3498db;
+        }
+        .edit-button:hover {
+            background: #2980b9;
+        }
+        .actions {
+            display: flex;
+        }
+
+        /* Modal Styles */
+        /* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Modal Entry Animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #555;
+}
+
+/* Table Styles for Modal */
+.modal-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.modal-content table td {
+    padding: 10px 0;
+    vertical-align: middle;
+}
+
+.modal-content table label {
+    font-weight: 500;
+    color: #34495e;
+    display: inline-block;
+    width: 100px;
+}
+
+.modal-content table input {
+    width: 100%;
+    padding: 3px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.modal-content table input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 12px;
+    background: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.modal-content button:hover {
+    background: #2980b9;
+}
+
+    </style>
+</head>
+<body>
+    <h1>🏋️‍♂️ Workout Tracker</h1>
+
+    <div class="workout-form">
+        <h2>Add a New Workout</h2>
+        <input type="text" id="title" placeholder="Workout Title" required>
+        <input type="number" id="reps" placeholder="Reps" required>
+        <input type="number" id="load" placeholder="Load (kg)" required>
+        <button onclick="addWorkout()">Add Workout</button>
+    </div>
+
+    <div class="workout-list">
+        <h2>Your Workouts</h2>
+        <div id="workouts"></div>
+    </div>
+
+    <!-- Modal for Editing Workout -->
+    <!-- Modal for Editing Workout -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Edit Workout</h2>
+        <table>
+            <tr>
+                <td><label for="editTitle">Workout Title:</label></td>
+                <td><input type="text" id="editTitle" placeholder="Workout Title" required></td>
+            </tr>
+            <tr>
+                <td><label for="editReps">Reps:</label></td>
+                <td><input type="number" id="editReps" placeholder="Reps" required></td>
+            </tr>
+            <tr>
+                <td><label for="editLoad">Load (kg):</label></td>
+                <td><input type="number" id="editLoad" placeholder="Load (kg)" required></td>
+            </tr>
+        </table>
+        <button onclick="saveEdit()">Save Changes</button>
+    </div>
+</div>
+
+
+    <script>
+        const API_URL = '/api/workouts';
+        let currentEditId = null;
+
+        async function fetchWorkouts() {
+            try {
+                const response = await fetch(API_URL);
+                const workouts = await response.json();
+
+                const workoutsContainer = document.getElementById('workouts');
+                workoutsContainer.innerHTML = '';
+
+                workouts.forEach(workout => {
+                    const workoutElement = document.createElement('div');
+                    workoutElement.className = 'workout-item';
+                    workoutElement.innerHTML = `
+                        <div>
+                            <strong>${workout.title}</strong>
+                            <p>Reps: ${workout.reps}, Load: ${workout.load} kg</p>
+                        </div>
+                        <div class="actions">
+                            <button class="edit-button" onclick="openModal('${workout._id}', '${workout.title}', ${workout.reps}, ${workout.load})">✏️ Edit</button>
+                            <button onclick="deleteWorkout('${workout._id}')">🗑️ Delete</button>
+                        </div>
+                    `;
+
+                    workoutsContainer.appendChild(workoutElement);
+                });
+            } catch (error) {
+                console.error('Error fetching workouts:', error);
+            }
+        }
+
+        function openModal(id, title, reps, load) {
+            currentEditId = id;
+            document.getElementById('editTitle').value = title;
+            document.getElementById('editReps').value = reps;
+            document.getElementById('editLoad').value = load;
+            document.getElementById('editModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+
+        async function saveEdit() {
+            const newTitle = document.getElementById('editTitle').value;
+            const newReps = document.getElementById('editReps').value;
+            const newLoad = document.getElementById('editLoad').value;
+
+            try {
+                const response = await fetch(`${API_URL}/${currentEditId}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ title: newTitle, reps: newReps, load: newLoad })
+                });
+
+                if (response.ok) {
+                    closeModal();
+                    fetchWorkouts();
+                } else {
+                    const error = await response.json();
+                    alert(error.error);
+                }
+            } catch (error) {
+                console.error('Error updating workout:', error);
+            }
+        }
+
+        fetchWorkouts();
+    </script>
+</body>
+</html>
